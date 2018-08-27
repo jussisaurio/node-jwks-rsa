@@ -32,9 +32,10 @@ export class JwksClient {
         }
         return cb(err);
       }
-
-      this.logger('Keys:', res.body.keys);
-      return cb(null, res.body.keys);
+      
+      var keys = options.keyInResponseBody ? [res.body] : res.body.keys;
+      this.logger('Keys:', keys);
+      return cb(null, keys);
     });
   }
 
