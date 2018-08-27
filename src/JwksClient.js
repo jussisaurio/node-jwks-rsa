@@ -1,4 +1,4 @@
-import debug from 'debug';
+// import debug from 'debug';
 import request from 'request';
 
 import ArgumentError from './errors/ArgumentError';
@@ -6,12 +6,12 @@ import JwksError from './errors/JwksError';
 import SigningKeyNotFoundError from './errors/SigningKeyNotFoundError';
 
 import { certToPEM, rsaPublicKeyToPEM } from './utils';
-import { cacheSigningKey, rateLimitSigningKey } from './wrappers';
+import { cacheSigningKey, rateLimitSigningKey } from './wrappers/index';
 
 export class JwksClient {
   constructor(options) {
-    this.options = { rateLimit: false, cache: false, strictSsl: true, ...options };
-    this.logger = debug('jwks');
+    this.options = Object.assign({ rateLimit: false, cache: false, strictSsl: true }, options);
+    this.logger = () => {};
 
     // Initialize wrappers.
     if (this.options.rateLimit) {
@@ -33,7 +33,7 @@ export class JwksClient {
         return cb(err);
       }
       
-      var keys = options.keyInResponseBody ? [res.body] : res.body.keys;
+      const keys = this.options.keyInResponseBody ? [ res.body ] : res.body.keys;
       this.logger('Keys:', keys);
       return cb(null, keys);
     });

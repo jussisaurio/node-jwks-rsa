@@ -1,4 +1,4 @@
-export ArgumentError from './ArgumentError';
-export JwksError from './JwksError';
-export JwksRateLimitError from './JwksRateLimitError';
-export SigningKeyNotFoundError from './SigningKeyNotFoundError';
+export { default as ArgumentError } from './ArgumentError';
+export { default as JwksError } from './JwksError';
+export { default as JwksRateLimitError }  from './JwksRateLimitError';
+export { default as SigningKeyNotFoundError } from './SigningKeyNotFoundError';

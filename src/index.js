@@ -1,20 +1,20 @@
 import { JwksClient } from './JwksClient';
 
-import * as errors from './errors';
-import { hapiJwt2Key, hapiJwt2KeyAsync } from './integrations/hapi';
-import { expressJwtSecret } from './integrations/express';
-import { koaJwtSecret } from './integrations/koa';
+import * as errors from './errors/index';
+import { hapiJwt2Key as h, hapiJwt2KeyAsync as h2 } from './integrations/hapi';
+import { expressJwtSecret as e } from './integrations/express';
+import { koaJwtSecret as k } from './integrations/koa';
 
-module.exports = (options) => {
+export default (options) => {
   return new JwksClient(options);
 };
 
-module.exports.ArgumentError = errors.ArgumentError;
-module.exports.JwksError = errors.JwksError;
-module.exports.JwksRateLimitError = errors.JwksRateLimitError;
-module.exports.SigningKeyNotFoundError = errors.SigningKeyNotFoundError;
+export const ArgumentError = errors.ArgumentError;
+export const JwksError = errors.JwksError;
+export const JwksRateLimitError = errors.JwksRateLimitError;
+export const SigningKeyNotFoundError = errors.SigningKeyNotFoundError;
 
-module.exports.expressJwtSecret = expressJwtSecret;
-module.exports.hapiJwt2Key = hapiJwt2Key;
-module.exports.hapiJwt2KeyAsync = hapiJwt2KeyAsync;
-module.exports.koaJwtSecret = koaJwtSecret;
+export const expressJwtSecret = e;
+export const hapiJwt2Key = h;
+export const hapiJwt2KeyAsync = h2;
+export const koaJwtSecret = k;

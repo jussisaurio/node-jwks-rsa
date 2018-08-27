@@ -7,4 +7,4 @@ function JwksRateLimitError(message) {
 
 JwksRateLimitError.prototype = Object.create(Error.prototype);
 JwksRateLimitError.prototype.constructor = JwksRateLimitError;
-module.exports = JwksRateLimitError;
+export default JwksRateLimitError;

@@ -1,6 +1,11 @@
 {
-  "presets": ["es2015", "stage-0"],
-  "ignore": [
-    "./node_modules/"
-  ]
+  "presets": [
+    [
+      "stage-0"
+    ]
+  ],
+  "only": [
+    "src/**/*"
+  ],
+  "plugins": ["transform-class-properties"],
 }

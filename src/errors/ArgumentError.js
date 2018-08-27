@@ -7,4 +7,4 @@ function ArgumentError(message) {
 
 ArgumentError.prototype = Object.create(Error.prototype);
 ArgumentError.prototype.constructor = ArgumentError;
-module.exports = ArgumentError;
+export default ArgumentError;

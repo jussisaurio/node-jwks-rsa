@@ -7,4 +7,4 @@ function JwksError(message) {
 
 JwksError.prototype = Object.create(Error.prototype);
 JwksError.prototype.constructor = JwksError;
-module.exports = JwksError;
+export default JwksError;

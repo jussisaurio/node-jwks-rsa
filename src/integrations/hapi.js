@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors';
+import { ArgumentError } from '../errors/index';
 import { JwksClient } from '../JwksClient';
 
 const handleSigningKeyError = (err, cb) => {
@@ -18,7 +18,7 @@ const handleSigningKeyError = (err, cb) => {
  * @param {object} options 
  * @returns {Promise}
  */
-module.exports.hapiJwt2KeyAsync = (options) => {
+export const hapiJwt2KeyAsync = (options) => {
   const secretProvider = module.exports.hapiJwt2Key(options);
   return function(decoded) {
     return new Promise((resolve, reject) => {
@@ -30,7 +30,7 @@ module.exports.hapiJwt2KeyAsync = (options) => {
   };
 }; 
 
-module.exports.hapiJwt2Key = (options) => {
+export const hapiJwt2Key = (options) => {
   if (options === null || options === undefined) {
     throw new ArgumentError('An options object must be provided when initializing hapiJwt2Key');
   }

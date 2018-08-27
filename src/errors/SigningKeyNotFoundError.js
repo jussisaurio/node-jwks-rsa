@@ -7,4 +7,4 @@ function SigningKeyNotFoundError(message) {
 
 SigningKeyNotFoundError.prototype = Object.create(Error.prototype);
 SigningKeyNotFoundError.prototype.constructor = SigningKeyNotFoundError;
-module.exports = SigningKeyNotFoundError;
+export default SigningKeyNotFoundError;

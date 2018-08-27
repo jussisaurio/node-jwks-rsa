@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors';
+import { ArgumentError } from '../errors/index';
 import { JwksClient } from '../JwksClient';
 
 const handleSigningKeyError = (err, cb) => {
@@ -13,7 +13,7 @@ const handleSigningKeyError = (err, cb) => {
   }
 };
 
-module.exports.expressJwtSecret = (options) => {
+export const expressJwtSecret = (options) => {
   if (options === null || options === undefined) {
     throw new ArgumentError('An options object must be provided when initializing expressJwtSecret');
   }

@@ -1,7 +1,7 @@
-import { ArgumentError } from '../errors';
+import { ArgumentError } from '../errors/index';
 import { JwksClient } from '../JwksClient';
 
-module.exports.koaJwtSecret = (options = {}) => {
+export const koaJwtSecret = (options = {}) => {
 
   if (!options.jwksUri) {
     throw new ArgumentError('No JWKS URI provided');

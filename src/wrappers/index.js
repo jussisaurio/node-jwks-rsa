@@ -1,2 +1,2 @@
-export cacheSigningKey from './cache';
-export rateLimitSigningKey from './rateLimit';
+export { default as cacheSigningKey } from  './cache';
+export { default as rateLimitSigningKey } from './rateLimit';
